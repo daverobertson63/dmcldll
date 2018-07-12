@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="DMCLDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DQLSearch" Type="System.String" Scope="User">
+      <Value Profile="(Default)">select * from </Value>
+    </Setting>
+    <Setting Name="DocbaseName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EPAProd</Value>
+    </Setting>
+    <Setting Name="DocbaseUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dmadmin</Value>
+    </Setting>
+    <Setting Name="DocbasePassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Password</Value>
+    </Setting>
+    <Setting Name="DocbaseSavePassword" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
