@@ -1,11 +1,11 @@
-# dmclcom
+# dmcldll
 DMCL .NET Integration for Documentum 
 
 ## Synopsis
 
 This is a simple .NET Documentum DMCL Library that you can still use for accessing Documentum in a simple way from .NET.  The basis of DFC is DMCL a simple API scheme to acesss a Docbase.  This is a reference model https://robineast.files.wordpress.com/2007/02/dctm_tech_stack.GIF
 
-You can also use Mono - but the project is VS 2013.   Mono can then be ported to Unix platforms.
+You can also use Mono - but the project is VS 2017.   Mono can then be ported to Unix platforms.
 
 
 ## Code Example
