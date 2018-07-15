@@ -147,7 +147,12 @@ namespace dmcldll
         }
 
 
-        [DllImport("dmcl40.dll", EntryPoint = "dmAPIDeInit", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		public int dmAPIDeInitVBA()
+		{
+			return dmAPIDeInit();
+		}
+
+		[DllImport("dmcl40.dll", EntryPoint = "dmAPIDeInit", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
         private static extern int orig_dmAPIDeInit();
         public static int dmAPIDeInit()
         {
@@ -166,11 +171,14 @@ namespace dmcldll
             return nRet;
         }
 
+		public DescAccess dmAPIDescVBA(string strCmd, int nVal1, ref int rnVal2, ref int rSession)
+		{
+			return dmAPIDesc(strCmd, nVal1, ref rnVal2, ref rSession);
+		}
 
-        [DllImport("dmcl40.dll", EntryPoint = "dmAPIDesc", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		[DllImport("dmcl40.dll", EntryPoint = "dmAPIDesc", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		private static extern System.IntPtr orig_dmAPIDesc([In] string strCmd, [In] int nVal1, ref int rnVal2, ref int rSession);
 
-
-        private static extern System.IntPtr orig_dmAPIDesc([In] string strCmd, [In] int nVal1, ref int rnVal2, ref int rSession);
         public  static DescAccess dmAPIDesc(string strCmd, int nVal1, ref int rnVal2, ref int rSession)
         {
             DescAccess da = DescAccess.daUnknown;
@@ -197,7 +205,14 @@ namespace dmcldll
             return da;
         }
 
-        [DllImport("dmcl40.dll", EntryPoint = "dmAPIExec", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		public int dmAPIExecVBA(string strExec)
+		{
+			return dmAPIExec(strExec);
+		}
+
+
+
+		[DllImport("dmcl40.dll", EntryPoint = "dmAPIExec", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
         private static extern int orig_dmAPIExec([In] string strExec);
         public  static int dmAPIExec(string strExec)
         {
@@ -245,7 +260,14 @@ namespace dmcldll
             return strRet;
         }
 
-        [DllImport("dmcl40.dll", EntryPoint = "dmAPISet", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		public static int dmAPISetVBA(string strCmd, string strValue)
+		{
+			return dmAPISet(strCmd, strValue);
+		}
+
+
+
+		[DllImport("dmcl40.dll", EntryPoint = "dmAPISet", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
         private static extern int orig_dmAPISet([In] string strCmd, [In] string strValue);
         public  static int dmAPISet(string strCmd, string strValue)
         {
@@ -265,7 +287,13 @@ namespace dmcldll
             return nRet;
         }
 
-        [DllImport("dmcl40.dll", EntryPoint = "dmAPIEval", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
+		public static string dmAPIEvalVBA(ref string strEval, ref string strArg)
+		{
+			return dmAPIEval(ref strEval, ref strArg);
+		}
+
+
+		[DllImport("dmcl40.dll", EntryPoint = "dmAPIEval", CharSet = System.Runtime.InteropServices.CharSet.Ansi, SetLastError = true)]
         private static extern System.IntPtr orig_dmAPIEval(ref string strEval, ref string strArg);
         public  static string dmAPIEval(ref string strEval, ref string strArg)
         {
@@ -287,8 +315,7 @@ namespace dmcldll
             return strRet;
         }
 
-
-
+		
         const string m_cstrAPISession = "apisession";
         /// <summary> 
         /// Returns the alias for the API session 
