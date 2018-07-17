@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.InteropServices;
-using System.Runtime.InteropServices;
-using System.Diagnostics; 
+using System.Diagnostics;
 
-namespace dmcldll
+namespace DMCLService
 {
 
 	[ComVisible(true)]
@@ -19,6 +13,7 @@ namespace dmcldll
         private static string m_cstrDMCLTraceCategory = "DMCL";
         private static TraceSwitch m_sts;
         private static bool m_fDMCLTrace = false;
+		
 
 		public double MultiplyNTimes(double number1, double number2, double timesToMultiply)
 		{
@@ -59,8 +54,10 @@ namespace dmcldll
         public static void Init()
         {
 
-            // Create a new switch class
-            m_sts = new TraceSwitch(m_cstrDMCLTraceCategory, "DMCL Tracing switch");
+			
+
+		// Create a new switch class
+		m_sts = new TraceSwitch(m_cstrDMCLTraceCategory, "DMCL Tracing switch");
             Trace.WriteLine("Trace Level : " + m_sts.Level.ToString());
             Trace.WriteLine("Trace Verbose : " + m_sts.TraceVerbose.ToString());
             Trace.WriteLine("Trace Error : " + m_sts.TraceError.ToString());
@@ -103,8 +100,8 @@ namespace dmcldll
 
         private static void OutputError(System.Exception e)
         {
-			FileLogger logger = new FileLogger();
-			logger.Log(e.ToString());
+			//FileLogger logger = new FileLogger();
+			//logger.Log(e.ToString());
 			Trace.WriteLine("", m_cstrDMCLTraceCategory);
             Trace.Indent();
             Trace.WriteLine("Stack Trace error dumped :",
