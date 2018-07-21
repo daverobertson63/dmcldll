@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nancy.Bootstrapper;
 using Nancy.Hosting.Self;
+using Nancy.TinyIoc;
 
 namespace DMCLService
 {
@@ -24,4 +26,5 @@ namespace DMCLService
 			Console.WriteLine("Stopped. Good bye!");
 		}
 	}
+	
 }
